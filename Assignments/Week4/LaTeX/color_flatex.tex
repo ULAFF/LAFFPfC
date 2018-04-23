@@ -1,0 +1,1147 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Array related wizardry
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcolumntype{I}{!{\vrule width 1.5pt}}
+\newlength\savedwidth
+\newcommand\whline{\noalign{\global\savedwidth\arrayrulewidth
+                            \global\arrayrulewidth 1.5pt}%
+           \hline
+           \noalign{\global\arrayrulewidth\savedwidth}}
+
+
+% ----------------------------------------------------------------
+
+% In math mode,
+% \FlaTwoByTwo{A}{B}
+%             {C}{D}
+% creates the picture
+%   / A || B \
+%   | ==  == |
+%   \ C || D /
+
+\newcommand{\FlaTwoByTwo}[4]{
+\left(
+\begin{array}{c I c}
+#1 & #2 \\ \hline
+#3 & #4
+\end{array}
+\right)
+}
+
+\newcommand{\FlaTwoByTwoNoPar}[4]{
+\begin{array}{c I c}
+#1 & #2 \\ \hline
+#3 & #4
+\end{array}
+}
+
+\newcommand{\FlaTwoByTwoSingleLineNoPar}[4]{
+\begin{array}{c | c}
+#1 & #2 \\ \hline
+#3 & #4
+\end{array}
+}
+
+\newcommand{\FlaTwoByTwoSingleLine}[4]{
+\left(
+\begin{array}{c | c}
+#1 & #2 \\ \hline
+#3 & #4
+\end{array}
+\right)
+}
+
+
+\newcommand{\FlaTwoByTwoNoLine}[4]{
+\left(
+\begin{array}{c  c}
+#1 & #2 \\
+#3 & #4
+\end{array}
+\right)
+}
+
+% In math mode,
+% \FlaTwoByOne{A}
+%             {C}
+% creates the picture
+%   / A  \
+%   | == |
+%   \ C  /
+
+\newcommand{\FlaTwoByOne}[2]{
+\left(
+\begin{array}{c}
+#1 \\ \hline
+#2
+\end{array}
+\right)
+}
+
+\newcommand{\FlaTwoByOneNoPar}[2]{
+\begin{array}{c}
+#1 \\ \hline
+#2
+\end{array}
+}
+
+% In math mode,
+% \FlaTwoByOneSingleLine{A}
+%                       {C}
+% creates the picture
+%   / A  \
+%   | -- |
+%   \ C  /
+
+\newcommand{\FlaTwoByOneSingleLine}[2]{
+\left(
+\begin{array}{c}
+#1 \\ \hline
+#2
+\end{array}
+\right)
+}
+
+\newcommand{\FlaTwoByOneSingleLineNoPar}[2]{
+\begin{array}{c}
+#1 \\ \hline
+#2
+\end{array}
+}
+
+
+\newcommand{\FlaTwoByOneNoLine}[2]{
+\left(
+\begin{array}{c}
+#1 \\
+#2
+\end{array}
+\right)
+}
+
+% In math mode,
+% \FlaOneByTwo{A}{B}
+% creates the picture
+%   ( A || B )
+
+\newcommand{\FlaOneByTwo}[2]{
+\left(
+\begin{array}{c I c}
+#1 & #2
+\end{array}
+\right)
+}
+
+\newcommand{\FlaOneByTwoNoPar}[2]{
+\begin{array}{c I c}
+#1 & #2
+\end{array}
+}
+
+\newcommand{\FlaOneByTwoSingleLine}[2]{
+\left(
+\begin{array}{c | c}
+#1 & #2
+\end{array}
+\right)
+}
+
+\newcommand{\FlaOneByTwoNoLine}[2]{
+\left(
+\begin{array}{c c}
+#1 & #2
+\end{array}
+\right)
+}
+
+% In math mode,
+% \FlaThreeByThreeTL{A}{B}{C}
+%                   {D}{E}{F}
+%                   {G}{H}{I}
+% creates the picture
+%   / A | B || C \
+%   | -- ---  -- |
+%   | D | E || F |
+%   | ==  ==  == |
+%   \ G | H || I /
+% Notice: the TL means that the
+% center block (E) is part of the
+% TL quadrant, where quadrants are
+% partitioned by the double lines.
+
+\newcommand{\FlaThreeByThreeTL}[9]{
+\left(
+\begin{array}{c | c I c}
+#1 & #2 & #3 \\ 
+#4 & #5 & #6 \\ \hline
+#7 & #8 & #9
+\end{array}
+\right)
+}
+
+\newcommand{\FlaThreeByThreeTLNoPar}[9]{
+\begin{array}{c | c I c}
+#1 & #2 & #3 \\ 
+#4 & #5 & #6 \\ \hline 
+#7 & #8 & #9 
+\end{array}
+}
+
+% In math mode,
+% \FlaThreeByThreeBR{A}{B}{C}
+%                   {D}{E}{F}
+%                   {G}{H}{I}
+% creates the picture
+%   / A || B | C \
+%   | ==  ==  == |
+%   | D || E | F |
+%   | -- ---  -- |
+%   \ G || H | I /
+% Notice: the BR means that the
+% center block (E) is part of the
+% BR quadrant, where quadrants are
+% partitioned by the double lines.
+
+\newcommand{\FlaThreeByThreeBR}[9]{
+\left(
+\begin{array}{c I c | c}
+#1 & #2 & #3 \\ \hline 
+#4 & #5 & #6 \\ 
+#7 & #8 & #9 
+\end{array}
+\right) 
+}
+
+\newcommand{\FlaThreeByThreeSingleLine}[9]{
+\left(
+\begin{array}{c | c | c}
+#1 & #2 & #3 \\ \hline
+#4 & #5 & #6 \\ \hline
+#7 & #8 & #9
+\end{array}
+\right)
+}
+
+\newcommand{\FlaThreeByThreeNoLine}[9]{
+\left(
+\begin{array}{c c c}
+#1 & #2 & #3 \\
+#4 & #5 & #6 \\
+#7 & #8 & #9
+\end{array}
+\right)
+}
+
+\newcommand{\FlaThreeByThreeBRNoPar}[9]{
+\begin{array}{c I c | c}
+#1 & #2 & #3 \\ \hline 
+#4 & #5 & #6 \\ 
+#7 & #8 & #9 
+\end{array}
+}
+
+% In math mode,
+% \FlaThreeByThreeTR{A}{B}{C}
+%                   {D}{E}{F}
+%                   {G}{H}{I}
+% creates the picture
+%   / A || B | C \
+%   | -- ---  -- |
+%   | D || E | F |
+%   | ==  ==  == |
+%   \ G || H | I /
+% Notice: the TR means that the
+% center block (E) is part of the
+% TR quadrant, where quadrants are
+% partitioned by the double lines.
+
+\newcommand{\FlaThreeByThreeTR}[9]{
+\left(
+\begin{array}{c I c | c}
+#1 & #2 & #3 \\ 
+#4 & #5 & #6 \\ \hline
+#7 & #8 & #9
+\end{array}
+\right)
+}
+
+
+% In math mode,
+% \FlaThreeByThreeBL{A}{B}{C}
+%                   {D}{E}{F}
+%                   {G}{H}{I}
+% creates the picture
+%   / A | B || C \
+%   | ==  ==  == |
+%   | D | E || F |
+%   | -- ---  -- |
+%   \ G | H || I /
+% Notice: the BL means that the
+% center block (E) is part of the
+% BL quadrant, where quadrants are
+% partitioned by the double lines.
+
+\newcommand{\FlaThreeByThreeBL}[9]{
+\left(
+\begin{array}{c | c I c}
+#1 & #2 & #3 \\ \hline
+#4 & #5 & #6 \\ 
+#7 & #8 & #9
+\end{array}
+\right)
+}
+
+% In math mode,
+% \FlaOneByThreeR{A}{B}{C}
+% creates the picture
+%   ( A || B | C )
+% Notice: the R means that the
+% center block (B) is part of the
+% R(ight) submatrix, where
+% submatrices are % partitioned
+% by the double lines.
+
+\newcommand{\FlaOneByThreeR}[3]{
+\left(
+\begin{array}{c I c | c}
+#1 & #2 & #3
+\end{array}
+\right)
+}
+
+% In math mode,
+% \FlaOneByThreeL{A}{B}{C}
+% creates the picture
+%   ( A | B || C )
+% Notice: the R means that the
+% center block (B) is part of the
+% R(ight) submatrix, where
+% submatrices are % partitioned
+% by the double lines.
+
+\newcommand{\FlaOneByThreeL}[3]{
+\left(
+\begin{array}{c | c I c}
+#1 & #2 & #3
+\end{array}
+\right)
+}
+
+% In math mode,
+% \FlaThreeByOneT{A}
+%                {D}
+%                {G}
+% creates the picture
+%   / A  \
+%   | == |
+%   | B  |
+%   | -- |
+%   \ C  /
+% Notice: the T means that the
+% center block (C) is part of the
+% T(op) submatrix where submatrices
+% are % partitioned by the double
+% lines.
+
+\newcommand{\FlaThreeByOneT}[3]{
+\left(
+\begin{array}{c}
+#1 \\ 
+#2 \\ \hline
+#3
+\end{array}
+\right)
+}
+
+\newcommand{\FlaThreeByOneTNoPar}[3]{
+\begin{array}{c}
+#1 \\ 
+#2 \\ \hline
+#3
+\end{array}
+}
+
+% In math mode,
+% \FlaThreeByOneB{A}
+%                {D}
+%                {G}
+% creates the picture
+%   / A  \
+%   | -- |
+%   | B  |
+%   | == |
+%   \ C  /
+% Notice: the B means that the
+% center block (C) is part of the
+% T(op) submatrix where submatrices
+% are % partitioned by the double
+% lines.
+
+\newcommand{\FlaThreeByOneB}[3]{
+\left(
+\begin{array}{c}
+#1 \\ \hline
+#2 \\ 
+#3
+\end{array}
+\right)
+}
+
+\newcommand{\FlaThreeByOneBNoPar}[3]{
+\begin{array}{c}
+#1 \\ \hline
+#2 \\ 
+#3
+\end{array}
+}
+
+\newcommand{\FlaThreeByOneSingleLine}[3]{
+\left(
+\begin{array}{c}
+#1 \\ \hline
+#2 \\ \hline
+#3
+\end{array}
+\right)
+}
+
+\newcommand{\FlaThreeByOneNoLine}[3]{
+\left(
+\begin{array}{c}
+#1 \\
+#2 \\
+#3
+\end{array}
+\right)
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\operation}{}
+
+\newcommand{\routinename}{}
+
+\newcommand{\precondition}{~}
+
+\newcommand{\postcondition}{~}
+
+\newcommand{\invariant}{~}
+
+\newcommand{\guard}{~}
+
+\newcommand{\partitionings}{~}
+
+\newcommand{\partitionsizes}{~}
+
+\newcommand{\blocksize}{blank}
+
+\newcommand{\repartitionings}{~}
+
+\newcommand{\repartitionsizes}{~}
+
+\newcommand{\moveboundaries}{~}
+
+\newcommand{\beforeupdate}{~}
+
+\newcommand{\afterupdate}{~}
+
+\newcommand{\update}{~}
+
+%%%%%%%%%%%%%%
+
+\newcommand{\resetsteps}{
+
+\renewcommand{\operation}{\phantom{[A] = op( A )}}
+
+\renewcommand{\routinename}{\operation}
+
+\renewcommand{\precondition}{\phantom{A = \widehat A}}
+
+\renewcommand{\postcondition}{\phantom{A = \widehat A}}
+
+\renewcommand{\invariant}{\phantom{ 
+	  \left(\begin{array}{c}
+	y_T \\ \whline
+	y_B 
+	\end{array}\right) 
+	\rightarrow
+	\left(\begin{array}{c}
+	y_0 \\ \whline 
+	\psi_1 \\  
+	y_2
+	\end{array}\right) \hspace{3in}\mbox{~}
+		}
+}
+
+\renewcommand{\blocksize}{blank}
+
+\renewcommand{\guard}{\phantom{m( A_{BL} ) < m( A )}}
+
+\renewcommand{\partitionings}{
+$
+\phantom{\FlaTwoByTwo{A_{TL}}{A_{TR}}{A_{BL}}{A_{BR}}
+\rightarrow
+\FlaThreeByThreeBR
+   {A_{00}}{a_{01}}{A_{02}}
+   {a_{10}^T}{\alpha_{11}}{a_{12}^T}
+   {A_{20}}{a_{21}}{A_{22}}}   
+$
+}
+
+\renewcommand{\partitionsizes}{$ \phantom{m( A )} $}
+
+\renewcommand{\repartitionings}{
+$
+\phantom{\FlaTwoByTwo{A_{TL}}{A_{TR}}{A_{BL}}{A_{BR}}
+\rightarrow
+\FlaThreeByThreeBR
+   {A_{00}}{a_{01}}{A_{02}}
+   {a_{10}^T}{\alpha_{11}}{a_{12}^T}
+   {A_{20}}{a_{21}}{A_{22}}}   
+$
+}
+
+\renewcommand{\repartitionsizes}{$\phantom{m(A)}$}
+
+\renewcommand{\moveboundaries}{
+$
+\phantom{\FlaTwoByTwo{A_{TL}}{A_{TR}}{A_{BL}}{A_{BR}}
+\rightarrow
+\FlaThreeByThreeBR
+   {A_{00}}{a_{01}}{A_{02}}
+   {a_{10}^T}{\alpha_{11}}{a_{12}^T}
+   {A_{20}}{a_{21}}{A_{22}}}   
+$
+}
+
+\renewcommand{\beforeupdate}{
+\phantom{$\FlaTwoByTwo{A_{TL}}{A_{TR}}{A_{BL}}{A_{BR}}
+\rightarrow
+\FlaThreeByThreeBR
+   {A_{00}}{a_{01}}{A_{02}}
+   {a_{10}^T}{\alpha_{11}}{a_{12}^T}
+   {A_{20}}{a_{21}}{A_{22}}$}   
+}
+
+\renewcommand{\afterupdate}{
+\phantom{$\FlaTwoByTwo{A_{TL}}{A_{TR}}{A_{BL}}{A_{BR}}
+\rightarrow
+\FlaThreeByThreeBR
+   {A_{00}}{a_{01}}{A_{02}}
+   {a_{10}^T}{\alpha_{11}}{a_{12}^T}
+   {A_{20}}{a_{21}}{A_{22}}$}   
+}
+
+\renewcommand{\update}{
+\phantom{$
+\begin{array}{l}
+\\
+\\
+\\
+\end{array}
+$}
+}
+}
+
+\newcommand{\NoShow}[1]{}
+
+
+
+\newcommand{\FlaAlgorithm}{
+\begin{tabular}{|l|} \hline
+$\mbox{\color{blue}Algorithm:~}\routinename$
+\\ \whline
+\partitionings \\
+$\mbox{\color{blue} ~~~where~}$ \partitionsizes 
+\\ 
+$\mbox{\color{blue}while~} \ShowGuard \mbox{~\color{blue} do}$
+\\
+\ifthenelse{\equal{\blocksize}{1}}{}%
+{%
+\ifthenelse{ \equal{\blocksize}{blank} }{}%
+{~~~~{\bf Determine block size $ \blocksize $}\\}%
+}
+~~~~ 
+\repartitionings \\
+~~~$\mbox{\color{blue} ~~~where~}$ \repartitionsizes
+\\ \hline
+~~~~  \update 
+\\ \hline
+~~~~ 
+\moveboundaries 
+\\
+$\mbox{\color{blue} endwhile} $
+\\ \hline 
+\end{tabular}
+}
+
+
+\newcounter{WSStep}
+\setcounter{WSStep}{9}
+
+\newcommand{\ShowPrecondition}{\ifthenelse{\value{WSStep}<1}%
+   {{\color{white} \precondition}}
+   {\ifthenelse{\value{WSStep}=1}%
+    {\color{red} \precondition}
+    {\color{black} \precondition}}}
+\newcommand{\ShowPostcondition}{\ifthenelse{\value{WSStep}<1}%
+   {{\color{white} \postcondition}}
+   {\ifthenelse{\value{WSStep}=1}%
+    {\color{red} \postcondition}
+    {\color{black} \postcondition}}}
+\newcommand{\ShowInvariant}{\ifthenelse{\value{WSStep}<2}%
+   {{\color{white} \invariant}}
+   {\ifthenelse{\value{WSStep}=2}%
+    {\color{red} \invariant}
+    {\color{black} \invariant}}}
+\newcommand{\ShowGuard}{\ifthenelse{\value{WSStep}<3}%
+   {{\color{lightgray!25} \guard}}
+   {\ifthenelse{\value{WSStep}=3}%
+    {\color{red} \guard}
+    {\color{black} \guard}}}
+\newcommand{\ShowGuardTwo}{\ifthenelse{\value{WSStep}<3}%
+   {{\color{white} \guard}}
+   {\ifthenelse{\value{WSStep}=3}%
+    {\color{red} \guard}
+    {\color{black} \guard}}}
+\newcommand{\ShowPartitionings}{\ifthenelse{\value{WSStep}<4}%
+   {{\color{lightgray!25} \partitionings}}%
+   {\ifthenelse{\value{WSStep}=4}%
+    {\color{red} \partitionings}%
+    {\color{black} \partitionings}}}
+\newcommand{\ShowPartitionSizes}{\ifthenelse{\value{WSStep}<4}%
+   {{\color{lightgray!25} \partitionsizes}}
+   {\ifthenelse{\value{WSStep}=4}%
+    {\color{red} \partitionsizes}
+    {\color{black} \partitionsizes}}}
+\newcommand{\ShowRepartitionings}{\ifthenelse{\value{WSStep}<5}%
+   {{\color{lightgray!25} \repartitionings}}
+   {\ifthenelse{\value{WSStep}=5}%
+    {\color{red} \repartitionings}
+    {\color{black} \repartitionings}}}
+\newcommand{\ShowRepartitionSizes}{\ifthenelse{\value{WSStep}<5}%
+   {{\color{lightgray!25} \repartitionsizes}}
+   {\ifthenelse{\value{WSStep}=5}%
+    {\color{red} \repartitionsizes}
+    {\color{black} \repartitionsizes}}}
+\newcommand{\ShowMoveBoundaries}{\ifthenelse{\value{WSStep}<5}%
+   {{\color{lightgray!25} \moveboundaries}}
+   {\ifthenelse{\value{WSStep}=5}%
+    {\color{red} \moveboundaries}
+    {\color{black} \moveboundaries}}}
+\newcommand{\ShowBeforeUpdate}{\ifthenelse{\value{WSStep}<6}%
+   {{\color{white} \beforeupdate}}
+   {\ifthenelse{\value{WSStep}=6}%
+    {\color{red} \beforeupdate}
+    {\color{black} \beforeupdate}}}
+\newcommand{\ShowAfterUpdate}{\ifthenelse{\value{WSStep}<7}%
+   {{\color{white} \afterupdate}}
+   {\ifthenelse{\value{WSStep}=7}%
+    {\color{red} \afterupdate}
+    {\color{black} \afterupdate}}}
+\newcommand{\ShowUpdate}{\ifthenelse{\value{WSStep}<8}%
+   {{\color{lightgray!25} \update}}
+   {\ifthenelse{\value{WSStep}=8}%
+    {\color{red} \update}
+    {\color{black} \update}}}
+   
+
+
+
+\newcommand{\FlaWorksheet}{
+\begin{tabular}{| c | p{0.9\textwidth} |}\hline
+Step & $\mbox{\color{blue}Algorithm:~}\routinename$
+\\ \hline
+1a &%
+$ \left\{ 
+\begin{minipage}{0.88\textwidth} 
+$\ShowPrecondition$  
+\end{minipage}
+\right\}
+$%
+\\ \hline
+\rowcolor{lightgray!25}   
+4 & %
+\begin{minipage}{0.88\textwidth}%
+\vspace{0.05in}
+\ShowPartitionings~ \\
+\mbox{\color{blue} ~~~where~} \ShowPartitionSizes
+\end{minipage}
+\\ \hline
+2 & 
+$ \left\{ 
+\begin{minipage}{0.88\textwidth} 
+$\ShowInvariant $
+\end{minipage}
+\right\} $ 
+\\ \hline
+\rowcolor{lightgray!25}   
+3 &$\mbox{\color{blue}while~} \ShowGuard \mbox{~\color{blue} do}$
+\\ \hline 
+2,3 &  
+$
+\left\{
+\begin{minipage}[t]{0.88\textwidth}%
+~~~~$
+\ShowInvariant  
+\wedge \ShowGuardTwo
+$
+\end{minipage}
+\right\}
+$ 
+\\ \hline
+\rowcolor{lightgray!25}   
+5a & ~~~~ \begin{minipage}{0.85\textwidth}%
+\vspace{0.05in}
+\ifthenelse{\equal{\blocksize}{1}}{}%
+{%
+\ifthenelse{ \equal{\blocksize}{blank} }{}%
+{{\bf Determine block size $ \blocksize $}\\}%
+}
+\ShowRepartitionings~ \\
+$\mbox{\color{blue} ~~~where~}$ \ShowRepartitionSizes
+\end{minipage}
+\\ \hline
+6 & 
+$ \left\{ 
+\begin{minipage}{0.88\textwidth} 
+~~~~ \ShowBeforeUpdate 
+\end{minipage}
+\right\}
+$
+\\ \hline
+\rowcolor{lightgray!25}  
+8 & ~~~~  \ShowUpdate 
+\\ \hline 
+7 & 
+$ \left\{ 
+\begin{minipage}{0.88\textwidth} 
+ ~~~~ \ShowAfterUpdate 
+\end{minipage}
+\right\}
+$
+\\ \hline
+\rowcolor{lightgray!25}   
+5b & ~~~~ \begin{minipage}{0.85\textwidth}%
+\vspace{0.05in}
+\ShowMoveBoundaries~
+\end{minipage}
+\\ \hline
+2 & 
+$ \left\{ 
+\begin{minipage}{0.88\textwidth} 
+~~~~ $ \ShowInvariant  $ 
+\end{minipage}
+\right\}
+$
+\\ \hline
+\rowcolor{lightgray!25}  
+ &$\mbox{\color{blue} endwhile} $
+\\ \hline 
+2,3 & 
+$ \left\{ 
+\begin{minipage}{0.88\textwidth} 
+$ 
+\ShowInvariant 
+\wedge \neg( \ShowGuardTwo )
+$
+\end{minipage}
+\right\}
+$
+\\ \hline
+1b & 
+$ \left\{ 
+\begin{minipage}{0.88\textwidth} 
+$ \ShowPostcondition $ 
+\end{minipage}
+\right\}
+$
+\\ \hline
+\end{tabular}
+}
+
+
+
+\newcommand{\FlaWorksheetNine}{
+\begin{tabular}{| c | p{0.9\textwidth} |}\hline
+{\color{white}Step} & $\mbox{\color{blue}Algorithm:~}\routinename$
+\\ \hline
+ &%
+$ \phantom{\left\{ 
+\begin{minipage}{0.88\textwidth} 
+$\ShowPrecondition$  
+\end{minipage}
+\right\}}
+$%
+\\ \hline
+\rowcolor{lightgray!25}   
+& %
+\begin{minipage}{0.88\textwidth}%
+\vspace{0.05in}
+\ShowPartitionings~ \\
+\mbox{\color{blue} ~~~where~} \ShowPartitionSizes
+\end{minipage}
+\\ \hline
+& 
+$ \phantom{\left\{ 
+\begin{minipage}{0.88\textwidth} 
+$\ShowInvariant $
+\end{minipage}
+\right\}} $ 
+\\ \hline
+\rowcolor{lightgray!25}   
+&$\mbox{\color{blue}while~} \ShowGuard \mbox{~\color{blue} do}$
+\\ \hline 
+ &  
+$
+\phantom{\left\{
+\begin{minipage}[t]{0.88\textwidth}%
+~~~~$
+\ShowInvariant 
+\wedge \ShowGuardTwo$
+\end{minipage}
+\right\}}
+$ 
+\\ \hline
+\rowcolor{lightgray!25}   
+ & ~~~~ \begin{minipage}{0.85\textwidth}%
+\vspace{0.05in}
+\ifthenelse{\equal{\blocksize}{1}}{}%
+{%
+\ifthenelse{ \equal{\blocksize}{blank} }{}%
+{{\bf Determine block size $ \blocksize $}\\}%
+}
+\ShowRepartitionings~ \\
+$\mbox{\color{blue} ~~~where~}$ \ShowRepartitionSizes
+\end{minipage}
+\\ \hline
+& 
+$ \phantom{\left\{ 
+\begin{minipage}{0.88\textwidth} 
+~~~~ \ShowBeforeUpdate 
+\end{minipage}
+\right\}}
+$
+\\ \hline
+\rowcolor{lightgray!25}  
+ & ~~~~  \ShowUpdate 
+\\ \hline 
+& 
+$ \phantom{\left\{ 
+\begin{minipage}{0.88\textwidth} 
+~~~~ \ShowAfterUpdate 
+\end{minipage}
+\right\}}
+$
+\\ \hline
+\rowcolor{lightgray!25}   
+ & ~~~~ \begin{minipage}{0.85\textwidth}%
+\vspace{0.05in}
+\ShowMoveBoundaries~
+\end{minipage}
+\\ \hline
+& 
+$ \phantom{\left\{ 
+\begin{minipage}{0.88\textwidth} 
+~~~~ $ \ShowInvariant  $ 
+\end{minipage}
+\right\}}
+$
+\\ \hline
+\rowcolor{lightgray!25}  
+ &$\mbox{\color{blue} endwhile} $
+\\ \hline 
+& 
+$ \phantom{\left\{ 
+\begin{minipage}{0.88\textwidth} 
+$ \ShowInvariant \wedge \neg( \ShowGuardTwo )$ 
+\end{minipage}
+\right\}}
+$
+\\ \hline
+& 
+$ \phantom{\left\{ 
+\begin{minipage}{0.88\textwidth} 
+$ \ShowPostcondition $ 
+\end{minipage}
+\right\}}
+$
+\\ \hline
+\end{tabular}
+}
+
+
+\newcommand{\FlaWorksheetEight}{
+\setcounter{WSStep}{8}
+\FlaWorksheet 
+\setcounter{WSStep}{9}
+}
+
+
+\newcommand{\FlaWorksheetSeven}{
+\setcounter{WSStep}{7}
+\FlaWorksheet 
+\setcounter{WSStep}{9}
+}
+
+
+\newcommand{\FlaWorksheetSix}{
+\setcounter{WSStep}{6}
+\FlaWorksheet 
+\setcounter{WSStep}{9}
+}
+
+
+\newcommand{\FlaWorksheetFive}{
+\setcounter{WSStep}{5}
+\FlaWorksheet 
+\setcounter{WSStep}{9}
+}
+
+
+\newcommand{\FlaWorksheetFour}{
+\setcounter{WSStep}{4}
+\FlaWorksheet 
+\setcounter{WSStep}{9}
+}
+
+
+\newcommand{\FlaWorksheetThree}{
+\setcounter{WSStep}{3}
+\FlaWorksheet 
+\setcounter{WSStep}{9}
+}
+
+
+\newcommand{\FlaWorksheetTwo}{
+\setcounter{WSStep}{2}
+\FlaWorksheet 
+\setcounter{WSStep}{9}
+}
+
+
+\newcommand{\FlaWorksheetOne}{
+\setcounter{WSStep}{1}
+\FlaWorksheet 
+\setcounter{WSStep}{9}
+}
+
+
+\newcommand{\FlaWorksheetZero}{
+\setcounter{WSStep}{0}
+\FlaWorksheet 
+\setcounter{WSStep}{9}
+}
+
+
+\newcommand{\PseudocodeAssert}[1]{%
+%
+$%
+\left\{ 
+\colorbox{white}{
+	\begin{minipage}{0.9\textwidth}
+#1 
+\end{minipage}%
+}
+\right\}  
+$
+\\ \hline 
+}
+
+\newcommand{\PseudocodeAssertColor}[2]{%
+%
+$%
+\left\{ 
+\colorbox{#1}{
+	\begin{minipage}{0.9\textwidth}
+#2
+\end{minipage}%
+}
+\right\}  
+$
+\\ \hline 
+}
+
+\newcommand{\PseudocodeAssertBlank}[1]{%
+%
+%
+$%
+\left\{ 
+\colorbox{white}{
+	\phantom{\raisebox{0pt}[2em][2em]{\begin{minipage}{0.9\textwidth}
+#1 
+\end{minipage}}}
+}
+\right\}  
+$
+\\ \hline 
+}
+
+\newcommand{\PseudocodeAssertNotBlank}[1]{%
+%
+%
+$%
+\left\{ 
+\colorbox{white}{
+	{\raisebox{0pt}[2em][2em]{\begin{minipage}{0.9\textwidth}
+#1 
+\end{minipage}}}
+}
+\right\}  
+$
+\\ \hline 
+}
+
+\newcommand{\PseudocodeAssertIndent}[1]{%
+\cellcolor{white}%
+\mbox{~~~~} % 
+$%
+\left\{ 
+\cellcolor{white}{
+	\begin{minipage}{0.9\textwidth}
+#1
+\end{minipage}
+}
+\right\}  
+$
+\\ \hline 
+}
+
+\newcommand{\PseudocodeAssertIndentColor}[2]{%
+\cellcolor{#1}%
+\mbox{~~~~} % 
+$%
+\left\{ 
+\cellcolor{#1}{
+	\begin{minipage}{0.9\textwidth}
+#2
+\end{minipage}
+}
+\right\}  
+$
+\\ \hline 
+}
+
+
+\newcommand{\PseudocodeAssertIndentBlank}[1]{%
+\cellcolor{white}%
+\mbox{~~~~} % 
+$%
+\left\{ 
+\phantom{
+	\begin{minipage}{0.9\textwidth}
+\raisebox{0pt}[2em][2em]{%
+#1 
+}
+\end{minipage}}
+\right\}  
+$
+\\ \hline 
+}
+
+\newcommand{\PseudocodeAssertIndentNotBlank}[1]{%
+\cellcolor{white}%
+\mbox{~~~~} % 
+$%
+\left\{ 
+{
+	\begin{minipage}{0.9\textwidth}
+\raisebox{0pt}[2em][2em]{%
+#1 
+}
+\end{minipage}}
+\right\}  
+$
+\\ \hline 
+}
+
+\newcommand{\PseudocodeStatementColor}[2]{
+	\rowcolor{lightgray!25}
+%
+        \begin{tabular}{@{}l}
+	\colorbox{#1}{#2}
+        \end{tabular}
+	\\ \hline
+}
+
+
+\newcommand{\PseudocodeStatement}[1]{
+	\rowcolor{lightgray!25}
+%
+        \begin{tabular}{@{}l}
+	#1
+        \end{tabular}
+	\\ \hline
+}
+
+
+\newcommand{\PseudocodeStatementBlank}[1]{
+	\rowcolor{lightgray!25}
+\raisebox{0pt}[2em][2em]{%
+        \begin{tabular}{@{}l}
+	\phantom{#1}
+        \end{tabular}
+}
+	\\ \hline 
+}
+
+\newcommand{\PseudocodeStatementNotBlank}[1]{
+	\rowcolor{lightgray!25}
+\raisebox{0pt}[2em][2em]{%
+        \begin{tabular}{@{}l}
+	{#1}
+        \end{tabular}
+}
+	\\ \hline 
+}
+
+\newcommand{\PseudocodeStatementIndentColor}[2]{
+	\rowcolor{lightgray!25}
+\mbox{~~~~}
+        \begin{tabular}{@{}l}
+	\colorbox{#1}{#2}
+        \end{tabular}
+	\\ \hline
+}
+
+\newcommand{\PseudocodeStatementIndent}[1]{
+	\rowcolor{lightgray!25}
+\mbox{~~~~}
+        \begin{tabular}{@{}l}
+	#1
+        \end{tabular}
+	\\ \hline
+}
+\newcommand{\PseudocodeStatementIndentBlank}[1]{
+	\rowcolor{lightgray!25}
+\mbox{~~~~}
+\raisebox{0pt}[2em][2em]{%
+        \begin{tabular}{@{}l}
+	\phantom{#1}
+        \end{tabular}
+}
+	\\ \hline 
+}
+
+
+\newcommand{\PseudocodeStatementIndentNotBlank}[1]{
+	\rowcolor{lightgray!25}
+\mbox{~~~~}
+\raisebox{0pt}[2em][2em]{%
+        \begin{tabular}{@{}l}
+	{#1}
+        \end{tabular}
+}
+	\\ \hline 
+}
+
+
+\newenvironment{Pseudocode}{
+      \begin{center}
+      \begin{tabular}{ | p{0.95\textwidth} | } \hline
+}
+{
+      \end{tabular}
+      \end{center}
+}
