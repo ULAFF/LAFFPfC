@@ -1,0 +1,40 @@
+\documentclass[10pt,a4paper]{article}
+\usepackage[latin1]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\author{Robert van de Geijn}
+\title{A Quick \LaTeX\ Primer}
+\begin{document}
+	\maketitle
+	
+	\begin{abstract}
+		The abstract goes here.
+	\end{abstract}
+	
+	\section{Introduction}
+	\subsection{First subsection}
+	\subsection{Second subsection}
+	
+	\section{Second section}
+	
+	A sum can be typeset like this: 
+	\begin{equation}
+	\label{eqn:one}
+	\sum_{i=0}^{n-1} i^2 
+	= \frac{n (n-1)}{2}
+	\end{equation}
+	In Equation~(\ref{eqn:one}) we give ...
+	
+	\[
+	\left(
+	\begin{array}{c | c || r}
+	1 & 2 & 3 \\ \hline
+	4 & 5 & 6 \\ \hline \hline
+	77 & 88 & 99
+	\end{array}
+	\right)
+	\]
+	
+\end{document}

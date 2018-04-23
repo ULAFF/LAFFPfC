@@ -1,0 +1,154 @@
+\documentclass[12pt]{article}
+
+\usepackage{amssymb}
+\usepackage{ifthen}
+\usepackage[table]{xcolor}
+\usepackage{minitoc}
+\usepackage{array}
+
+\definecolor{yellow}{cmyk}{0,0,1,0}
+\renewcommand{\arraystretch}{1.4}
+\newcommand{\R}{\mathbb{R}}
+
+\usepackage{colortbl}
+
+% Page size
+\setlength{\oddsidemargin}{-0.5in}
+\setlength{\evensidemargin}{-0.5in}
+\setlength{\textheight}{10.25in}
+\setlength{\textwidth}{7.0in}
+\setlength{\topmargin}{-1.35in}
+
+\renewcommand{\arraycolsep}{1pt}
+
+
+\input ../../../FLaTeX/color_flatex
+
+\begin{document}
+\pagestyle{empty}
+
+
+\resetsteps % reset all definitions
+
+% Insert output from Spark webpage below
+
+
+\resetsteps      % Reset all the commands to create a blank worksheet  
+
+% Define the operation to be computed
+
+\renewcommand{\routinename}{ \left[ \alpha \right] := \mbox{\sc Dots\_unb\_var1}( x, y, \alpha ) }
+
+% Step 3: Loop-guard 
+
+\renewcommand{\guard}{
+	m( x_T ) < m( x )
+}
+
+% Step 4: Define Initialize 
+
+\renewcommand{\partitionings}{
+	$
+	x \rightarrow
+	\left(\begin{array}{c}
+	x_T \\ \whline
+	x_B 
+	\end{array}\right) 
+	$
+	,
+	$
+	y \rightarrow
+	\left(\begin{array}{c}
+	y_T \\ \whline
+	y_B 
+	\end{array}\right) 
+	$
+}
+
+\renewcommand{\partitionsizes}{
+	$ x_{T} $ has $ 0 $ rows,
+	$ y_{T} $ has $ 0 $ rows
+}
+
+% Step 5a: Repartition the operands 
+
+\renewcommand{\repartitionings}{
+	$  \left(\begin{array}{c}
+	x_T \\ \whline
+	x_B 
+	\end{array}\right) 
+	\rightarrow
+	\left(\begin{array}{c}
+	x_0 \\ \whline 
+	\chi_1 \\ \hline 
+	x_2
+	\end{array}\right) 
+	$
+	,
+	$  \left(\begin{array}{c}
+	y_T \\ \whline
+	y_B 
+	\end{array}\right) 
+	\rightarrow
+	\left(\begin{array}{c}
+	y_0 \\ \whline 
+	\psi_1 \\ \hline 
+	y_2
+	\end{array}\right) 
+	$
+}
+
+\renewcommand{\repartitionsizes}{
+	$ \chi_1 $ has $ 1 $ row,
+	$ \psi_1 $ has $ 1 $ row}
+
+% Step 5b: Move the double lines 
+
+\renewcommand{\moveboundaries}{
+	$  \left(\begin{array}{c}
+	x_T \\ \whline
+	x_B 
+	\end{array}\right) 
+	\leftarrow
+	\left(\begin{array}{c}
+	x_0 \\ \hline 
+	\chi_1 \\ \whline 
+	x_2
+	\end{array}\right) 
+	$
+	,
+	$  \left(\begin{array}{c}
+	y_T \\ \whline
+	y_B 
+	\end{array}\right) 
+	\leftarrow
+	\left(\begin{array}{c}
+	y_0 \\ \hline 
+	\psi_1 \\ \whline 
+	y_2
+	\end{array}\right) 
+	$
+}
+
+% Step 8: Insert the updates required to change the 
+%         state from that given in Step 6 to that given in Step 7
+% Note: The below needs editing!!!
+
+\renewcommand{\update}{
+	$
+	\begin{array}{l}          % do not delete this line 
+	\alpha := \chi_1 \psi_1 + \alpha    % replace \mbox{...} with update line but leave 
+	\end{array}               % do not delete this line 
+	$
+}
+
+
+
+
+
+\begin{center}
+	\FlaAlgorithm
+\end{center}
+
+
+\end{document}
