@@ -1,0 +1,20 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[latin1]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+
+\newenvironment{EquivProof}{\[ \begin{array}{@{}l}}{ \end{array}\]}
+
+\newcommand{\proofline}[1]{~~~~~~#1}
+\newcommand{\equivto}[1]{\Leftrightarrow~<~\mbox{#1}~>}
+
+\begin{document}
+	
+\begin{EquivProof}
+	\proofline{p \Rightarrow ( q \Rightarrow p )}\\ 
+	\equivto{implication}\\
+\end{EquivProof}
+	
+\end{document}
